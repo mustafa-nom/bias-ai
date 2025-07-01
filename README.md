@@ -6,7 +6,7 @@ This tool uses the CLI to:
 3. Summarize everything w/ [Google Gemini]('google-generativeai')
 
 Installing the correct packages include:
-```pip install requests newspaper3k python-dotenv google-generativeai```
+`pip install requests newspaper3k python-dotenv google-generativeai`
 in an optional virtual env. that can be created with the following: 
 ```python3 -m venv .venv
 source .venv/bin/activate      # macOS/Linux
@@ -14,7 +14,7 @@ source .venv/bin/activate      # macOS/Linux
 ```
 
 Tool configuration:
-To run the app, you must put the following in a ```.env``` file:
+To run the app, you must put the following in a `.env` file:
 ```NEWSAPI_KEY=your_newsapi_key_here 
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
