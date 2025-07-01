@@ -8,17 +8,16 @@ This tool uses the CLI to:
 Installing the correct packages include:
 '''pip install requests newspaper3k python-dotenv google-generativeai'''
 in an optional virtual env. that can be created with the following: 
-'''python3 -m venv .venv
+```python3 -m venv .venv
 source .venv/bin/activate      # macOS/Linux
 .\.venv\Scripts\Activate.ps1   # Windows PowerShell
-'''
+```
 
 Tool configuration:
-To run the app, you must put the following in a '''.env''' file:
-'''NEWSAPI_KEY=your_newsapi_key_here
-GEMINI_API_KEY=your_gemini_api_key_here
-'''
+To run the app, you must put the following in a ```.env``` file:
+```NEWSAPI_KEY=your_newsapi_key_here 
+GEMINI_API_KEY=your_gemini_api_key_here```
 Note: verify its ignored in the .gitignore
 
 To ron the script, call the following: 
-'''python bias_inference.py'''
+```python bias_inference.py```
