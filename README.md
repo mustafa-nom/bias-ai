@@ -6,7 +6,7 @@ This tool uses the CLI to:
 3. Summarize everything w/ [Google Gemini]('google-generativeai')
 
 Installing the correct packages include:
-`pip install requests newspaper3k python-dotenv google-generativeai`
+`pip install requests newspaper3k python-dotenv google-generativeai lxml_html_clean`
 in an optional virtual env. that can be created with the following: 
 ```python3 -m venv .venv
 source .venv/bin/activate      # macOS/Linux
