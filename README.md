@@ -15,7 +15,8 @@ source .venv/bin/activate      # macOS/Linux
 
 Tool configuration:
 To run the app, you must put the following in a `.env` file:
-```NEWSAPI_KEY=your_newsapi_key_here 
+```
+NEWSAPI_KEY=your_newsapi_key_here 
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 Note: verify its ignored in the .gitignore file
