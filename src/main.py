@@ -128,7 +128,7 @@ def main():
                     print("Summary skipped due to scraping issue.")
                 
                 #curr source amount allowed
-                if count >= 6:
+                if count >= 3:
                     break
 
         else:
