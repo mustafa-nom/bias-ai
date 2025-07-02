@@ -9,7 +9,7 @@ from gemini_summarizer import ai_summarize
 
 #loading env vars
 load_dotenv()
-NEWSAPI_KEY = os.getenv("NEWSAPI_KEY") #news api https://newsapi.org/ --> get api key
+NEWSAPI_KEY = os.getenv("NEWSAPI_KEY") 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") 
 
 genai.configure(api_key=GEMINI_API_KEY)
@@ -29,6 +29,3 @@ for article in news_articles.get('articles', []):
             article_text += f"\n\n{text}"
 
 summarized_text = ai_summarize(article_text)
-
-#display results from summarized text
-

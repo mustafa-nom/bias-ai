@@ -8,7 +8,8 @@ This tool uses the CLI to:
 Installing the correct packages include:
 `pip install requests newspaper3k python-dotenv google-generativeai lxml_html_clean`
 in an optional virtual env. that can be created with the following: 
-```python3 -m venv .venv
+```
+python3 -m venv .venv
 source .venv/bin/activate      # macOS/Linux
 .\.venv\Scripts\Activate.ps1   # Windows PowerShell
 ```
