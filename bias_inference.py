@@ -3,9 +3,9 @@ import os
 from newspaper import Article
 import google.generativeai as genai
 from dotenv import load_dotenv
-from fetch_articles.py import fetch_requests
-from extract_text.py import extract_text
-from gemini_summarizer.py import ai_summarize
+from fetch_articles import fetch_requests
+from extract_text import extract_text
+from gemini_summarizer import ai_summarize
 
 #loading env vars
 load_dotenv()
@@ -21,7 +21,13 @@ url = BASE_URL + "everything"
 topic = input("Enter a news topic to search: ")
 
 news_articles = fetch_requests(topic)
-article_text = extract_text(url)
+article_text = ""
+for article in news_articles.get('articles', []):
+    if article.get('url'):
+        text = extract_text(article['url'])
+        if text:
+            article_text += f"\n\n{text}"
+
 summarized_text = ai_summarize(article_text)
 
 #display results from summarized text
