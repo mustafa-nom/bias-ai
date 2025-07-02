@@ -13,7 +13,7 @@ def summarize_with_gemini_http(article_text):
             {
                 "parts": [
                     {
-                        "text": f"Summarize the following news article in 5-6 sentences with a neutral and factual tone:\n\n{article_text}"
+                        "text": f"Summarize the following news article in 5-6 sentences using the exaggerated political tone and perspective of the article’s source (e.g., far-left, progressive, centrist, conservative, or far-right). Highlight any emotional language, assumptions, or bias present in the article:\n\n{article_text}"
                     }
                 ]
             }
