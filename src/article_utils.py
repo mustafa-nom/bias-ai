@@ -11,7 +11,7 @@ def extract_full_text(url):
         article.parse()
         return article.text.strip()
     except Exception as e:
-        print(f"❌ Failed to extract article text: {e}")
+        print(f"failed to extract article text: {e}")
         return None
 
 def load_allsides_data():

@@ -7,7 +7,6 @@ from collections import Counter
 from api_setup import api_keys
 from article_utils import extract_full_text, load_allsides_data, find_allsides_metadata
 from analysis import summarize_with_gemini_http, analyze_bias_with_together_ai
-from visualization import print_bias_summary
 
 def fetch_news_articles(topic, max_articles=25):
     """Fetch news articles on a specific topic."""
@@ -104,9 +103,6 @@ def main():
         # Limit to 6 articles from unique sources
         if count >= 6:
             break
-    
-    # Show final summary
-    print_bias_summary(leaning_tally)
     
     # Optional: Visualize the results
     # Uncomment the following line if you've implemented visualization.py
