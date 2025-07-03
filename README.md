@@ -23,4 +23,4 @@ GEMINI_API_KEY=your_gemini_api_key_here
 Note: verify its ignored in the .gitignore file
 
 To run the script, call the following: 
-```python bias_inference.py```
+```python src/main.py```
