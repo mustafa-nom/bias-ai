@@ -5,9 +5,17 @@ from api_setup import api_keys
 from article_utils import extract_full_text, load_allsides_data, find_allsides_metadata
 from analysis import summarize_with_gemini_http, analyze_bias_with_together_ai
 from db_utils import save_article, fetch_all_articles, init_db
+from cache import get_cached_articles, cache_articles
 
 def fetch_news_articles(topic, max_articles=25):
     """Fetch news articles on a specific topic."""
+    # Check cache first
+    cached_articles = get_cached_articles(topic)
+    if cached_articles:
+        print(f"Using cached articles for '{topic}'")
+        return cached_articles
+    
+    print(f"Fetching fresh articles for '{topic}'...")
     url = "https://newsapi.org/v2/everything"
     params = {
         "q": topic,
@@ -21,7 +29,11 @@ def fetch_news_articles(topic, max_articles=25):
         response = requests.get(url, params=params)
         if response.status_code == 200:
             data = response.json()
-            return data.get("articles", [])
+            articles = data.get("articles", [])
+            # Cache the results
+            if articles:
+                cache_articles(topic, articles)
+            return articles
         else:
             print(f"Failed to fetch news. Status: {response.status_code}")
             print(response.text)
