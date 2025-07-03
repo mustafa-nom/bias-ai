@@ -2,8 +2,9 @@ import unittest
 import pandas as pd
 import sys
 import os
+from unittest.mock import patch, MagicMock
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from article_utils import find_allsides_metadata
+from article_utils import find_allsides_metadata, extract_full_text
 
 class TestFindAllSidesMetadata(unittest.TestCase):
 
@@ -32,6 +33,19 @@ class TestFindAllSidesMetadata(unittest.TestCase):
         result = find_allsides_metadata("Bruh news", self.mock_df)
         self.assertEqual(result["rating"], "Unknown")
         self.assertIsNone(result["allsides_url"])
+
+    @patch('article_utils.Article')
+    def test_extract_full_text_success(self, mock_article_class):
+        mock_article = MagicMock()
+        mock_article.text = "This is a test article content."
+        mock_article_class.return_value = mock_article
+        
+        result = extract_full_text("https://example.com/article")
+        
+        self.assertEqual(result, "This is a test article content.")
+        mock_article_class.assert_called_once_with("https://example.com/article")
+        mock_article.download.assert_called_once()
+        mock_article.parse.assert_called_once()
 
 if __name__ == "__main__":
     unittest.main()
