@@ -1,11 +1,14 @@
 # Bias News Inference Summarizer
+**BiasAI** is a Python command-line tool that helps users evaluate the political bias and sentiment of news articles. It fetches real-time articles on a given topic, summarizes them using Google's Gemini AI, and assesses political leaning with TogetherAI (Mistral model), cross-referenced with the AllSides media bias dataset.
 
-## Tools/APIs
-This tool uses the CLI to:
-1. Fetch news articles via a get request from [NewsAPI](https://newsapi.org/)
-2. Extract full article text via the webscraper from ['newspaper3k'](https://pypi.org/project/newspaper3k/)
-3. Summarize everything w/ [Google Gemini]('google-generativeai')
-4. Article text is also sent to [TogetherAI (Mistrai AI)]('https://api.together.xyz/signin?redirectUrl=%2F') to label politcal stance of the source. This is used alongside the [AllSides CSV file]('https://github.com/favstats/AllSideR/blob/master/data/allsides_data.csv') to allow users to identify political orientation in a consistent framework.
+## Features & Tools
+- **News fetching** using [NewsAPI](https://newsapi.org/) based on user-provided topics  
+- **Article summarization** via [Google Gemini](https://ai.google.dev/)  
+- **Political bias detection** using [TogetherAI (Mistral)](https://www.together.ai/)  
+- **Bias context and rating** cross-referenced with the [AllSides Dataset](https://github.com/favstats/AllSideR)  
+- **Web scraping** to extract full article content via [`newspaper3k`](https://pypi.org/project/newspaper3k/)  
+- **Caching system** using local JSON to reduce redundant API calls  
+- **Persistent storage** of analyzed articles and results in a local SQLite database
 
 ## Installation
 Installing the correct packages include:
